@@ -1,32 +1,17 @@
 package com.tananushka.task02;
 
-public class Employee {
-   private String name;
-   private String type;
+public abstract class Employee {
+   private final String name;
 
-   public Money calculatePay(Employee e) throws InvalidEmployeeType {
-      switch (e.type) {
-         case COMMISSIONED:
-            return calculateCommissionedPay(e);
-         case HOURLY:
-            return calculateHourlyPay(e);
-         case SALARIED:
-            return calculateSalariedPay(e);
-         default:
-            throw new InvalidEmployeeType(e.type);
-      }
+   public Employee(String name) {
+      this.name = name;
    }
 
-   public Money calculateBonus(Employee e) throws InvalidEmployeeType {
-      switch (e.type) {
-         case COMMISSIONED:
-            return calculateCommissionedBonus(e);
-         case HOURLY:
-            return calculateHourlyBonus(e);
-         case SALARIED:
-            return calculateSalariedBonus(e);
-         default:
-            throw new InvalidEmployeeType(e.type);
-      }
+   public String getName() {
+      return name;
    }
+
+   public abstract Money calculatePay();
+
+   public abstract Money calculateBonus();
 }

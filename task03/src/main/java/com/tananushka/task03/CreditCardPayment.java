@@ -1,11 +1,14 @@
 package com.tananushka.task03;
 
-class CreditCardPayment extends PaymentMethod {
-   boolean validatePaymentDetails() {
-      // Validate credit card details
+public class CreditCardPayment implements PaymentMethod {
+   @Override
+   public boolean validatePaymentDetails() {
+      // Validate
+      return true;
    }
 
-   void processPayment(double amount) {
-      // Process credit card payment
+   @Override
+   public void processPayment(double amount) throws PaymentProcessingException {
+      System.out.println("Processing credit card payment of $" + amount);
    }
 }

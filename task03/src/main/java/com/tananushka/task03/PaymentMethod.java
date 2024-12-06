@@ -1,7 +1,7 @@
 package com.tananushka.task03;
 
-abstract class PaymentMethod {
-   abstract boolean validatePaymentDetails();
+public interface PaymentMethod {
+   boolean validatePaymentDetails();
 
-   abstract void processPayment(double amount);
+   void processPayment(double amount) throws PaymentProcessingException;
 }
